@@ -1,0 +1,26 @@
+/**
+ * @package ReAbolishSlaveryRibbon
+ * @author Ian Dunn <ian@iandunn.name>
+ * @link http://wordpress.org/extend/plugins/re-abolish-slavery-ribbon/
+ */
+
+#re-abolish-slavery-ribbon
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1000;
+	border-width: 0;
+}
+
+@media ( max-width: 755px ), ( max-device-width: 755px )
+{
+	#re-abolish-slavery-ribbon.bottom
+	{
+		position: static;
+		float: right;
+		top: auto;
+		right: auto;
+		z-index: auto;
+	}
+}

@@ -1,0 +1,41 @@
+Before each new release
+	Same steps as BGMP
+	Also, check to make sure links in readme and main image link are still active
+
+	
+minor
+	take mobile screenshot?
+	setup some kind of monitor on the linked page so that you get notified if they take it down/etc ?
+	
+major
+	placement options (e.g, top left, middle left fixed position, etc)
+		would need extra images
+		maybe have a normal position for bottom where you have a horizontal image? then also switch to that for mobile. right now the regular image doesn't look good at the bottom.
+	different options for mobile than for desktop?
+	figure out a way to have ribbon at top of page for mobile instead of bottom? don't think it's possible w/out javascript b/c no hook right after <body>
+	get better solution for IE7/8?
+		if so, update note in faq and settings page
+		can include respond.js when they get crash bug worked out. maybe it's because you have the max-width and max-device-width OR'd? 
+		use global $is_IE to conditionally wp_enqueue_script it
+	
+minor
+	add a 'add this to your site' thing?
+		like http://www.supportjapan.info/?page_id=21
+	write unit tests?
+	
+major
+	once a day, check if the response for the url is 200 or 404
+		if 301, then use that 
+		if 404, then change link to backup url instead
+		i htink would have constants for primary and backup url
+		store the active url and last timestampe check in db
+	
+major
+	internationalization, including images
+	hooks for developers, etc
+	uninstall
+	
+
+	
+user requests. implement if enough people ask
+	x
