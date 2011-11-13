@@ -2,11 +2,11 @@
 Contributors: iandunn
 Donate link: http://www.notforsalecampaign.org
 Tags: Not For Sale, slavery, human trafficking, abolition, social justice, ribbon, badge, banner
-Requires at least: 2.1
-Tested up to: 3.2.1
-Stable tag: 0.1
+Requires at least: 2.7
+Tested up to: 3.3
+Stable tag: 1.0
 
-Adds a "re-abolish slavery" ribbon to the upper right-hand corner of your site, which links to the Not For Sale campaign.
+Adds a "re-abolish slavery" ribbon to the top left or top right corner of your site, which links to the Not For Sale campaign.
 
 
 == Description ==
@@ -53,19 +53,34 @@ You can go to the General Settings page and check the 'Move to Bottom on Small S
 Note that this won't work in Internet Expolorer 8 or below, because they don't support modern web standards.
 
 = How can I get help when I'm having a problem? =
-Check [the support forum](http://wordpress.org/tags/re-abolish-slavery-ribbon?forum_id=10), because your question may have already been answered there, and any answer you get will help others in the future. If you can't find anything, then start a new thread with a detailed description of your problem and the URL to your site. I monitor the forums and will respond as my schedule permits.
+2. Read the answers on this page.
+3. Check [the support forum](http://wordpress.org/tags/re-abolish-slavery-ribbon?forum_id=10), because your problem may already have been answered there, and if not, the answer you get will help others in the future.
 
-If you create a post, make sure it's tagged with `re-abolish-slavery-ribbon` so that I get a notification. If you use the link above it'll automatically tag it for you.
+If you still need help, then first follow these instructions:
+
+1. Disable all other plugins and switch to the default theme, then check if the problem is still happening. 
+2. If it isn't, then the problem may actually be with your theme or other plugins you have installed. 
+3. If the problem is still happening, then start a new thread in the forum with a **detailed description** of your problem and **the URL to your site**.
+4. Tag the post with `re-abolish-slavery-ribbon` so that I get an e-mail notification. If you use the link above it'll automatically tag it for you.
+5. Check the 'Notify me of follow-up posts via e-mail' box so you won't miss any replies.
+
+I monitor the forums and will respond as my schedule permits.
 
 = How can I send feedback that isn't of a support nature? =
 You can send me feedback/comments/suggestions using the [contact form](http://iandunn.name/contact) on my website, and I'll respond as my schedule permits. *Please **don't** use this if you're having trouble using the plugin;* use the support forums instead (see above question for details).
 
 
 == Screenshots ==
-1. An example of how the ribbon looks in the Twenty Eleven theme
+1. An example of how the ribbon looks in the Twenty Eleven theme.
+1. It can also be placed in the upper-left hand corner.
 
 
 == Changelog ==
+
+= 1.0 =
+* Added option to position ribbon in top-left corner.
+* Added the 'Add this to your site' button.
+* Moved settings to its own page.
 
 = 0.1 =
 * Initial release
@@ -73,5 +88,8 @@ You can send me feedback/comments/suggestions using the [contact form](http://ia
 
 == Upgrade Notice ==
 
+= 1.0 =
+Version 1.0 adds the choice to position the ribbon in the top-left corner.
+
 = 0.1 =
-Initial release
+Initial release.

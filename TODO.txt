@@ -1,14 +1,14 @@
 Before each new release
 	Same steps as BGMP
 	Also, check to make sure links in readme and main image link are still active
-
 	
 minor
 	take mobile screenshot?
 	setup some kind of monitor on the linked page so that you get notified if they take it down/etc ?
+		not as part of plugin, just as page2rss or something
 	
 major
-	placement options (e.g, top left, middle left fixed position, etc)
+	placement options (e.g,  middle fixed position, etc)
 		would need extra images
 		maybe have a normal position for bottom where you have a horizontal image? then also switch to that for mobile. right now the regular image doesn't look good at the bottom.
 	different options for mobile than for desktop?
@@ -19,8 +19,6 @@ major
 		use global $is_IE to conditionally wp_enqueue_script it
 	
 minor
-	add a 'add this to your site' thing?
-		like http://www.supportjapan.info/?page_id=21
 	write unit tests?
 	
 major
@@ -29,6 +27,7 @@ major
 		if 404, then change link to backup url instead
 		i htink would have constants for primary and backup url
 		store the active url and last timestampe check in db
+		nah, not worth it?
 	
 major
 	internationalization, including images

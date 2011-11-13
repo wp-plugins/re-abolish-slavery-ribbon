@@ -4,23 +4,58 @@
  * @link http://wordpress.org/extend/plugins/re-abolish-slavery-ribbon/
  */
 
-#re-abolish-slavery-ribbon
+#rasr_container
 {
 	position: absolute;
 	top: 0;
-	right: 0;
 	z-index: 1000;
 	border-width: 0;
 }
 
+	#rasr_container.top-left
+	{
+		left: 0;
+	}
+	
+	#rasr_container.top-right
+	{
+		right: 0;
+	}
+	
+	#rasr_add-icon
+	{
+		display: none;
+		margin-right: 7px;
+	}
+	
+		#rasr_container.top-left #rasr_add-icon
+		{
+			float: right;
+		}
+		
+		#rasr_container.top-right #rasr_add-icon
+		{
+			float: left;
+		}
+
+/* Move to the bottom of the page on small screens */
 @media ( max-width: 755px ), ( max-device-width: 755px )
 {
-	#re-abolish-slavery-ribbon.bottom
+	#rasr_container.bottom
 	{
 		position: static;
-		float: right;
 		top: auto;
 		right: auto;
 		z-index: auto;
 	}
+	
+		#rasr_container.top-left.bottom
+		{
+			float: left;
+		}
+		
+		#rasr_container.top-right.bottom
+		{
+			float: right;
+		}
 }
