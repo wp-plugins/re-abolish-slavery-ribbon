@@ -10,7 +10,7 @@ minor
 major
 	placement options (e.g,  middle fixed position, etc)
 		would need extra images
-		maybe have a normal position for bottom where you have a horizontal image? then also switch to that for mobile. right now the regular image doesn't look good at the bottom.
+		maybe have a normal position for bottom centered where you have a horizontal image? then also switch to that for mobile. right now the regular image doesn't look good at the bottom.
 	different options for mobile than for desktop?
 	figure out a way to have ribbon at top of page for mobile instead of bottom? don't think it's possible w/out javascript b/c no hook right after <body>
 	get better solution for IE7/8?
