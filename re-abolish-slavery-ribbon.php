@@ -3,7 +3,7 @@
 Plugin Name: Re-Abolish Slavery Ribbon
 Plugin URI: http://wordpress.org/extend/plugins/re-abolish-slavery-ribbon/
 Description: Adds a "re-abolish slavery" ribbon to the upper right-hand corner of your site, which links to the Not For Sale campaign
-Version: 1.0.1
+Version: 1.0.2
 Author: Ian Dunn
 Author URI: http://iandunn.name
 License: GPL2

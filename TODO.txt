@@ -3,6 +3,7 @@ Before each new release
 	Also, check to make sure links in readme and main image link are still active
 	
 minor
+	make sure it works well with TwentyTwelve theme
 	take mobile screenshot?
 	setup some kind of monitor on the linked page so that you get notified if they take it down/etc ?
 		not as part of plugin, just as page2rss or something

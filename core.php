@@ -18,7 +18,7 @@ if( !class_exists('ReAbolishSlaveryRibbon') )
 	{
 		// Declare variables and constants
 		protected $displayRibbon, $newWindow, $ribbonPosition, $bottomForMobile;
-		const VERSION		= '1.0.1';
+		const VERSION		= '1.0.2';
 		const PREFIX		= 'rasr_';
 		const SETTINGS_PAGE	= 'rasr_settings';
 		
