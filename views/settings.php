@@ -6,6 +6,6 @@
 		<?php settings_fields( self::SETTINGS_PAGE ); ?>
 		<?php do_settings_sections( self::SETTINGS_PAGE ); ?>
 
-		<p class="submit"><input type="submit" name="submit" id="submit" class="button-primary" value="<?php esc_attr_e('Save Changes'); ?>"  /></p>
+		<p class="submit"><input type="submit" name="submit" id="submit" class="button-primary" value="<?php esc_attr_e( 'Save Changes' ); ?>"  /></p>
 	</form>
 </div> <!-- .wrap -->

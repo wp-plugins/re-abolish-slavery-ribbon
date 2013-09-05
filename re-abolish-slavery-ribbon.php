@@ -12,7 +12,7 @@ License: GPL2
 // Disclaimer: This plugin was created independently and isn't officially affiliated with the Not For Sale campaign. Using it on your site doesn't imply endorsement of the site by NFS.
 
 /*  
- * Copyright 2011 Ian Dunn (email : ian@iandunn.name)
+ * Copyright 2011-2013 Ian Dunn (email : ian@iandunn.name)
  * 
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2, as 
@@ -28,8 +28,8 @@ License: GPL2
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-if( $_SERVER['SCRIPT_FILENAME'] == __FILE__ )
-	die("Access denied.");
+if ( $_SERVER['SCRIPT_FILENAME'] == __FILE__ )
+	die( 'Access denied.' );
 
 define( 'RASR_NAME', 'Re-Abolish Slavery Ribbon' );
 define( 'RASR_REQUIRED_PHP_VERSON', '5' );
@@ -40,16 +40,15 @@ define( 'RASR_REQUIRED_WP_VERSION', '2.7' );
  * @author Ian Dunn <ian@iandunn.name>
  * @return bool True if system requirements are met, false if not
  */
-function RASR_requirementsMet()
-{
+function RASR_requirementsMet() {
 	global $wp_version;
-	
-	if( version_compare(PHP_VERSION, RASR_REQUIRED_PHP_VERSON, '<') )
+
+	if ( version_compare( PHP_VERSION, RASR_REQUIRED_PHP_VERSON, '<' ) )
 		return false;
-	
-	if( version_compare($wp_version, RASR_REQUIRED_WP_VERSION, "<") )
+
+	if ( version_compare( $wp_version, RASR_REQUIRED_WP_VERSION, '<' ) )
 		return false;
-	
+
 	return true;
 }
 
@@ -57,11 +56,10 @@ function RASR_requirementsMet()
  * Prints an error that the system requirements weren't met.
  * @author Ian Dunn <ian@iandunn.name>
  */
-function RASR_requirementsNotMet()
-{
+function RASR_requirementsNotMet() {
 	global $wp_version;
-	
-	echo sprintf('
+
+	echo sprintf( '
 		<div id="message" class="error">
 			<p>
 				%s <strong>requires PHP %s</strong> and <strong>WordPress %s</strong> in order to work. You\'re running PHP %s and WordPress %s. You\'ll need to upgrade in order to use this plugin. If you\'re not sure how to <a href="http://codex.wordpress.org/Switching_to_PHP5">upgrade to PHP 5</a> you can ask your hosting company for assistance, and if you need help upgrading WordPress you can refer to <a href="http://codex.wordpress.org/Upgrading_WordPress">the Codex</a>.
@@ -71,16 +69,15 @@ function RASR_requirementsNotMet()
 		RASR_REQUIRED_PHP_VERSON,
 		RASR_REQUIRED_WP_VERSION,
 		PHP_VERSION,
-		$wp_version		
+		$wp_version
 	);
 }
 
 // Check requirements and instantiate
-if( RASR_requirementsMet() )
-{
-	require_once( dirname(__FILE__) . '/core.php' );
-	
-	if( class_exists('ReAbolishSlaveryRibbon') )
+if ( RASR_requirementsMet() ) {
+	require_once( dirname( __FILE__ ) . '/core.php' );
+
+	if ( class_exists( 'ReAbolishSlaveryRibbon' ) )
 		$rasr = new ReAbolishSlaveryRibbon();
 }
 else

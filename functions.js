@@ -9,13 +9,11 @@ jQuery( document ).ready( function()
 {
 	// Show the link to download the plugin when the user hovers over the ribbon
 	jQuery( '#rasr_container' ).hover(
-		function()
-		{
+		function() {
 			jQuery( '#rasr_add-icon' ).fadeIn();
 		},
 		
-		function()
-		{
+		function() {
 			jQuery( '#rasr_add-icon' ).fadeOut();
 		}
 	);

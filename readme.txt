@@ -80,6 +80,10 @@ You can send me feedback/comments/suggestions using the [contact form](http://ia
 
 == Changelog ==
 
+= 1.0.3 =
+* added filters around image and link
+* updated link
+
 = 1.0.2 =
 * Updated ribbon link URL
 
