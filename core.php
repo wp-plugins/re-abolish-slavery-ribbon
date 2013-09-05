@@ -172,12 +172,12 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		public function ribbonPositionCallback() {
 			?>
 
-			<input id="<?php echo self::PREFIX; ?>ribbon-position-top-right" name="<?php echo self::PREFIX; ?>ribbon-position" type="radio" value="top-right" <?php echo checked( $this->ribbonPosition, 'top-right', false ); ?> />
-			<label for="<?php echo self::PREFIX; ?>ribbon-position-top-right"><span class="description">Top Right Corner.</span></label>
+			<input id="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position-top-right" name="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position" type="radio" value="top-right" <?php echo checked( $this->ribbonPosition, 'top-right', false ); ?> />
+			<label for="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position-top-right"><span class="description">Top Right Corner.</span></label>
 			<br />
 
-			<input id="<?php echo self::PREFIX; ?>ribbon-position-top-left" name="<?php echo self::PREFIX; ?>ribbon-position" type="radio" value="top-left" <?php echo checked( $this->ribbonPosition, 'top-left', false ); ?> />
-			<label for="<?php echo self::PREFIX; ?>ribbon-position-top-left"><span class="description">Top Left Corner.</span></label>
+			<input id="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position-top-left" name="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position" type="radio" value="top-left" <?php echo checked( $this->ribbonPosition, 'top-left', false ); ?> />
+			<label for="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position-top-left"><span class="description">Top Left Corner.</span></label>
 
 		<?php
 		}
@@ -187,8 +187,17 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		 * @author Ian Dunn <ian@iandunn.name>
 		 */
 		public function newWindowCallback() {
-			echo '<input id="' . self::PREFIX . 'new-window" name="' . self::PREFIX . 'new-window" type="checkbox" ' . checked( $this->newWindow, 'on', false ) . ' />';
-			echo '<label for="' . self::PREFIX . 'new-window"><span class="description">If checked, the link to the NFS website open in a new window. <strong>Note:</strong> Forcing links to open in a new window is <a href="http://uxdesign.smashingmagazine.com/2008/07/01/should-links-open-in-new-windows/">considered a bad practice</a>. Please consider leaving this off.</span></label>';
+			?>
+
+			<input id="<?php echo esc_attr( self::PREFIX ); ?>new-window" name="<?php echo esc_attr( self::PREFIX ); ?>new-window" type="checkbox" <?php checked( $this->newWindow, 'on', false ); ?> />
+			<label for="<?php echo esc_attr( self::PREFIX ); ?>new-window">
+				<span class="description">
+					If checked, the link to the NFS website open in a new window.<br />
+					<strong>Note:</strong> Forcing links to open in a new window is <a href="http://uxdesign.smashingmagazine.com/2008/07/01/should-links-open-in-new-windows/">considered a bad practice</a>. Please consider leaving this off.
+				</span>
+			</label>
+
+			<?php
 		}
 
 		/**
@@ -196,8 +205,15 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		 * @author Ian Dunn <ian@iandunn.name>
 		 */
 		public function bottomForMobileCallback() {
-			echo '<input id="' . self::PREFIX . 'bottom-for-mobile" name="' . self::PREFIX . 'bottom-for-mobile" type="checkbox" ' . checked( $this->bottomForMobile, 'on', false ) . ' />';
-			echo '<label for="' . self::PREFIX . 'bottom-for-mobile"><span class="description">If checked, the ribbon will appear at the bottom of the page when viewed on a smartphone so that it doesn\'t overlap the header. Note that this won\'t work in Internet Expolorer versions 8 and below, because they don\'t support modern web standards.</span></label>';
+			?>
+
+			<input id="<?php echo esc_attr( self::PREFIX ); ?>bottom-for-mobile" name="<?php echo esc_attr( self::PREFIX ); ?>bottom-for-mobile" type="checkbox" <?php echo checked( $this->bottomForMobile, 'on', false ); ?> />
+			<label for="<?php echo esc_attr( self::PREFIX ); ?>bottom-for-mobile">
+				<span class="description">If checked, the ribbon will appear at the bottom of the page when viewed on a smartphone so that it doesn't overlap the header. Note that this won't work in Internet Explorer versions 8 and below, because they don't support modern web standards.
+				</span>
+			</label>
+
+			<?php
 		}
 
 		/**
