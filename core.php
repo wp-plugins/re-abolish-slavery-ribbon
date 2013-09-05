@@ -26,20 +26,32 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		 * @author Ian Dunn <ian@iandunn.name>
 		 */
 		public function __construct() {
+			// Actions
+			add_action( 'init',          array( $this, 'init' ) );
+			add_action( 'wp',            array( $this, 'setDisplayRibbon' ) );
+			add_action( 'wp',            array( $this, 'loadResources' ) );
+			add_action( 'admin_menu',    array( $this, 'addSettingsPage' ) );
+			add_action( 'admin_init',    array( $this, 'addSettings' ) );
+			add_action( 'wp_footer',     array( $this, 'printRibbon' ) );
+			add_action( 'wpmu_new_blog', array( $this, 'activateNewSite' ) );
+
+			// Filters
+			add_filter( 'plugin_action_links_re-abolish-slavery-ribbon/re-abolish-slavery-ribbon.php', array( $this, 'addSettingsLink' ) );
+
+			// Miscellaneous
+			register_activation_hook( dirname( __FILE__ ) . '/re-abolish-slavery-ribbon.php', array( $this, 'networkActivate' ) );
+		}
+
+		/*
+		 * Assign variables and other initilization
+		 */
+		public function init() {
 			$this->displayRibbon   = null;
 			$this->newWindow       = get_option( self::PREFIX . 'new-window', '' );
 			$this->ribbonPosition  = get_option( self::PREFIX . 'ribbon-position', 'top-right' );
 			$this->bottomForMobile = get_option( self::PREFIX . 'bottom-for-mobile', 'on' );
-
-			add_action( 'wp', array( $this, 'setDisplayRibbon' ) );
-			add_action( 'wp', array( $this, 'loadResources' ) );
-			add_action( 'admin_menu', array( $this, 'addSettingsPage' ) );
-			add_action( 'admin_init', array( $this, 'addSettings' ) );
-			add_action( 'wp_footer', array( $this, 'printRibbon' ) );
-			add_action( 'wpmu_new_blog', array( $this, 'activateNewSite' ) );
-
-			add_filter( 'plugin_action_links_re-abolish-slavery-ribbon/re-abolish-slavery-ribbon.php', array( $this, 'addSettingsLink' ) );
-			register_activation_hook( dirname( __FILE__ ) . '/re-abolish-slavery-ribbon.php', array( $this, 'networkActivate' ) );
+			$this->imageLocation   = apply_filters( 'rasr_image_location', plugins_url( 're-abolish-slavery-ribbon/images/ribbon-'. $this->ribbonPosition .'.png' ) );
+			$this->imageLinkURL    = apply_filters( 'rasr_image_link_url', 'http://www.notforsalecampaign.org/about/slavery/' );
 		}
 
 		/**

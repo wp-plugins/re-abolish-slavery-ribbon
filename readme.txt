@@ -3,8 +3,9 @@ Contributors: iandunn
 Donate link: http://www.notforsalecampaign.org
 Tags: Not For Sale, slavery, human trafficking, abolition, social justice, ribbon, badge, banner
 Requires at least: 2.7
-Tested up to: 3.4.2
+Tested up to: 3.6
 Stable tag: 1.0.2
+License: GPLv2 or Later
 
 Adds a "re-abolish slavery" ribbon to the top left or top right corner of your site, which links to the Not For Sale campaign.
 
@@ -72,6 +73,27 @@ I monitor the forums and will respond as my schedule permits.
 = How can I send feedback that isn't of a support nature? =
 You can send me feedback/comments/suggestions using the [contact form](http://iandunn.name/contact) on my website, and I'll respond as my schedule permits. *Please **don't** use this if you're having trouble using the plugin;* use the support forums instead (see above question for details).
 
+= Can I use this plugin to promote a different cause? =
+Yes, there are filters for changing the image and URL that it links to. Here's an example:
+
+`add_filter( 'rasr_image_location', 'rasr_replace_image' );
+function rasr_replace_image( $image_location ) {
+	// Example 1: Using an image from the Media Library. 28 is the ID of the attachment. Use wp_get_attachment_image_src to specific a thumbnail size.
+	$image_location = wp_get_attachment_url( 28 );
+
+	// Example 2: Using a direct URL, which can link to either a local or remote image. Keep in mind hotlinking to remote images is considered a bad practice.
+	// $image_location = 'http://example.org/image.png';
+
+	return $image_location;
+}
+
+add_filter( 'rasr_image_link_url', 'rasr_replace_image_link' );
+function rasr_replace_image_link( $image_link_url ) {
+	return 'http://example.org';
+}`
+
+Add that code to a [functionality plugin](http://www.doitwithwp.com/create-functions-plugin/) and modify it to fit your needs.
+
 
 == Screenshots ==
 1. An example of how the ribbon looks in the Twenty Eleven theme.
@@ -81,8 +103,9 @@ You can send me feedback/comments/suggestions using the [contact form](http://ia
 == Changelog ==
 
 = 1.0.3 =
-* added filters around image and link
-* updated link
+* Added output sanitization for security
+* Added filters around ribbon image and link for customization
+* Updated the URL to the Not For Sale page
 
 = 1.0.2 =
 * Updated ribbon link URL
