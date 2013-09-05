@@ -6,8 +6,6 @@ if ( $_SERVER['SCRIPT_FILENAME'] == __FILE__ )
 if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 	/**
 	 * Adds a "re-abolish slavery" ribbon to the upper right-hand corner of your site, which links to the Not For Sale campaign
-	 * Requires PHP5+ because of various OOP features, pass by reference, etc
-	 * Requires Wordpress 2.7 because of add_settings_field()
 	 *
 	 * @package ReAbolishSlaveryRibbon
 	 * @author  Ian Dunn <ian@iandunn.name>
@@ -15,9 +13,9 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 	 */
 	class ReAbolishSlaveryRibbon {
 		// Declare variables and constants
-		protected $displayRibbon, $newWindow, $ribbonPosition, $bottomForMobile;
+		protected $displayRibbon, $newWindow, $ribbonPosition, $bottomForMobile, $imageLocation, $imageLinkURL;
 
-		const VERSION       = '1.0.2';
+		const VERSION       = '1.0.3';
 		const PREFIX        = 'rasr_';
 		const SETTINGS_PAGE = 'rasr_settings';
 
@@ -172,11 +170,11 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		public function ribbonPositionCallback() {
 			?>
 
-			<input id="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position-top-right" name="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position" type="radio" value="top-right" <?php echo checked( $this->ribbonPosition, 'top-right', false ); ?> />
+			<input id="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position-top-right" name="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position" type="radio" value="top-right" <?php checked( $this->ribbonPosition, 'top-right' ); ?> />
 			<label for="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position-top-right"><span class="description">Top Right Corner.</span></label>
 			<br />
 
-			<input id="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position-top-left" name="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position" type="radio" value="top-left" <?php echo checked( $this->ribbonPosition, 'top-left', false ); ?> />
+			<input id="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position-top-left" name="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position" type="radio" value="top-left" <?php checked( $this->ribbonPosition, 'top-left' ); ?> />
 			<label for="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position-top-left"><span class="description">Top Left Corner.</span></label>
 
 		<?php
@@ -189,7 +187,7 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		public function newWindowCallback() {
 			?>
 
-			<input id="<?php echo esc_attr( self::PREFIX ); ?>new-window" name="<?php echo esc_attr( self::PREFIX ); ?>new-window" type="checkbox" <?php checked( $this->newWindow, 'on', false ); ?> />
+			<input id="<?php echo esc_attr( self::PREFIX ); ?>new-window" name="<?php echo esc_attr( self::PREFIX ); ?>new-window" type="checkbox" <?php checked( $this->newWindow, 'on' ); ?> />
 			<label for="<?php echo esc_attr( self::PREFIX ); ?>new-window">
 				<span class="description">
 					If checked, the link to the NFS website open in a new window.<br />
@@ -207,7 +205,7 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		public function bottomForMobileCallback() {
 			?>
 
-			<input id="<?php echo esc_attr( self::PREFIX ); ?>bottom-for-mobile" name="<?php echo esc_attr( self::PREFIX ); ?>bottom-for-mobile" type="checkbox" <?php echo checked( $this->bottomForMobile, 'on', false ); ?> />
+			<input id="<?php echo esc_attr( self::PREFIX ); ?>bottom-for-mobile" name="<?php echo esc_attr( self::PREFIX ); ?>bottom-for-mobile" type="checkbox" <?php checked( $this->bottomForMobile, 'on' ); ?> />
 			<label for="<?php echo esc_attr( self::PREFIX ); ?>bottom-for-mobile">
 				<span class="description">If checked, the ribbon will appear at the bottom of the page when viewed on a smartphone so that it doesn't overlap the header. Note that this won't work in Internet Explorer versions 8 and below, because they don't support modern web standards.
 				</span>

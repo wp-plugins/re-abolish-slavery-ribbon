@@ -2,9 +2,9 @@
 Contributors: iandunn
 Donate link: http://www.notforsalecampaign.org
 Tags: Not For Sale, slavery, human trafficking, abolition, social justice, ribbon, badge, banner
-Requires at least: 2.7
+Requires at least: 2.8
 Tested up to: 3.6
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or Later
 
 Adds a "re-abolish slavery" ribbon to the top left or top right corner of your site, which links to the Not For Sale campaign.
@@ -124,6 +124,9 @@ Add that code to a [functionality plugin](http://www.doitwithwp.com/create-funct
 
 
 == Upgrade Notice ==
+
+= 1.0.3 =
+Version 1.0.3 adds a few filters for customization and output sanitization for security.
 
 = 1.0.2 =
 Version 1.0.2 is a small but significant update, because it updates the ribbon URL to match the new Slavery page on NFS's website
