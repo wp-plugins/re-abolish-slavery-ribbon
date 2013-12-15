@@ -102,6 +102,9 @@ Add that code to a [functionality plugin](http://www.doitwithwp.com/create-funct
 
 == Changelog ==
 
+= 1.0.4 (2013-12-14) =
+* [UPDATE] Remove unnecessary activation logic
+
 = 1.0.3 =
 * Added output sanitization for security
 * Added filters around ribbon image and link for customization
@@ -124,6 +127,9 @@ Add that code to a [functionality plugin](http://www.doitwithwp.com/create-funct
 
 
 == Upgrade Notice ==
+
+= 1.0.4 =
+
 
 = 1.0.3 =
 Version 1.0.3 adds a few filters for customization and output sanitization for security.

@@ -35,9 +35,6 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 
 			// Filters
 			add_filter( 'plugin_action_links_re-abolish-slavery-ribbon/re-abolish-slavery-ribbon.php', array( $this, 'addSettingsLink' ) );
-
-			// Miscellaneous
-			register_activation_hook( dirname( __FILE__ ) . '/re-abolish-slavery-ribbon.php', array( $this, 'networkActivate' ) );
 		}
 
 		/*
@@ -50,58 +47,6 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 			$this->bottomForMobile = get_option( self::PREFIX . 'bottom-for-mobile', 'on' );
 			$this->imageLocation   = apply_filters( 'rasr_image_location', plugins_url( 're-abolish-slavery-ribbon/images/ribbon-'. $this->ribbonPosition .'.png' ) );
 			$this->imageLinkURL    = apply_filters( 'rasr_image_link_url', 'http://www.notforsalecampaign.org/about/slavery/' );
-		}
-
-		/**
-		 * Handles extra activation tasks for MultiSite installations
-		 * @author Ian Dunn <ian@iandunn.name>
-		 */
-		public function networkActivate() {
-			global $wpdb;
-
-			if ( function_exists( 'is_multisite' ) && is_multisite() ) {
-				// Activate the plugin across the network if requested
-				if ( array_key_exists( 'networkwide', $_GET ) && ( $_GET['networkwide'] == 1 ) ) {
-					$blogs = $wpdb->get_col( "SELECT blog_id FROM " . $wpdb->blogs );
-
-					foreach ( $blogs as $b ) {
-						switch_to_blog( $b );
-						$this->singleActivate();
-					}
-
-					restore_current_blog();
-				}
-				else
-					$this->singleActivate();
-			}
-			else
-				$this->singleActivate();
-		}
-
-		/**
-		 * Prepares a single blog to use the plugin
-		 * @author Ian Dunn <ian@iandunn.name>
-		 */
-		protected function singleActivate() {
-			// Save default settings
-			if ( ! get_option( self::PREFIX . 'new-window' ) )
-				add_option( self::PREFIX . 'new-window', '' );
-			if ( ! get_option( self::PREFIX . 'ribbon-position' ) )
-				add_option( self::PREFIX . 'ribbon-position', 'top-right' );
-			if ( ! get_option( self::PREFIX . 'bottom-for-mobile' ) )
-				add_option( self::PREFIX . 'bottom-for-mobile', 'on' );
-		}
-
-		/**
-		 * Runs activation code on a new WPMS site when it's created
-		 * @author Ian Dunn <ian@iandunn.name>
-		 *
-		 * @param int $blogID
-		 */
-		public function activateNewSite( $blogID ) {
-			switch_to_blog( $blogID );
-			$this->singleActivate();
-			restore_current_blog();
 		}
 
 		/**
