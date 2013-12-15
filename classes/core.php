@@ -66,7 +66,7 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		 */
 		public function markupSettingsPage() {
 			if ( current_user_can( 'manage_options' ) ) {
-				require_once( dirname( __FILE__ ) . '/views/settings.php' );
+				require_once( dirname( dirname( __FILE__ ) ) . '/views/settings.php' );
 			} else {
 				wp_die( 'Access denied.' );
 			}
@@ -112,7 +112,7 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		 * @author Ian Dunn <ian@iandunn.name>
 		 */
 		public function markupSettingFields( $field ) {
-			require( dirname( __FILE__ ) . '/views/setting-fields.php' );
+			require( dirname( dirname( __FILE__ ) ) . '/views/setting-fields.php' );
 		}
 
 		/**
@@ -123,7 +123,7 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		public function loadResources() {
 			wp_register_script(
 				self::PREFIX . 'functions',
-				plugins_url( 'functions.js', __FILE__ ),
+				plugins_url( 'javascript/functions.js', dirname( __FILE__ ) ),
 				array( 'jquery' ),
 				self::VERSION,
 				true
@@ -131,7 +131,7 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 
 			wp_register_style(
 				self::PREFIX . 'style',
-				plugins_url( 'style.css', __FILE__ ),
+				plugins_url( 'css/style.css', dirname( __FILE__ ) ),
 				false,
 				self::VERSION
 			);
@@ -166,7 +166,7 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		 */
 		public function printRibbon() {
 			if ( $this->displayRibbon ) {
-				require_once( dirname( __FILE__ ) . '/views/ribbon-markup.php' );
+				require_once( dirname( dirname( __FILE__ ) ) . '/views/ribbon-markup.php' );
 			}
 		}
 	} // end ReAbolishSlaveryRibbon

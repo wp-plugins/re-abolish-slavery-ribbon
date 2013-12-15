@@ -106,7 +106,8 @@ Add that code to a [functionality plugin](http://www.doitwithwp.com/create-funct
 * [UPDATE] Remove unnecessary activation logic
 * [UPDATE] Moved multiple inline HTML callbacks to single external controller/view
 * [UPDATE] Minor code cleanup
-* [UPDATE] Move screenshots to assets directory
+* [UPDATE] Moved screenshots to assets directory
+* [UPDATE] Organized files into directories
 
 = 1.0.3 =
 * Added output sanitization for security
