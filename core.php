@@ -65,10 +65,11 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		 * @author Ian Dunn <ian@iandunn.name>
 		 */
 		public function markupSettingsPage() {
-			if ( current_user_can( 'manage_options' ) )
+			if ( current_user_can( 'manage_options' ) ) {
 				require_once( dirname( __FILE__ ) . '/views/settings.php' );
-			else
+			} else {
 				wp_die( 'Access denied.' );
+			}
 		}
 
 		/**
@@ -96,9 +97,9 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		public function addSettings() {
 			add_settings_section( self::SETTINGS_PAGE, '', '__return_empty_string', self::SETTINGS_PAGE );
 
-			add_settings_field( self::PREFIX . 'ribbon-position', 'Ribbon Position', array( $this, 'ribbonPositionCallback' ), self::SETTINGS_PAGE, self::SETTINGS_PAGE, array( 'label_for' => self::PREFIX . 'ribbon-position' ) );
-			add_settings_field( self::PREFIX . 'new-window', 'Open Link in New Window', array( $this, 'newWindowCallback' ), self::SETTINGS_PAGE, self::SETTINGS_PAGE, array( 'label_for' => self::PREFIX . 'new-window' ) );
-			add_settings_field( self::PREFIX . 'bottom-for-mobile', 'Move to Bottom on Small Screens', array( $this, 'bottomForMobileCallback' ), self::SETTINGS_PAGE, self::SETTINGS_PAGE, array( 'label_for' => self::PREFIX . 'bottom-for-mobile' ) );
+			add_settings_field( self::PREFIX . 'ribbon-position', 'Ribbon Position', array( $this, 'markupSettingFields' ), self::SETTINGS_PAGE, self::SETTINGS_PAGE, array( 'label_for' => self::PREFIX . 'ribbon-position' ) );
+			add_settings_field( self::PREFIX . 'new-window', 'Open Link in New Window', array( $this, 'markupSettingFields' ), self::SETTINGS_PAGE, self::SETTINGS_PAGE, array( 'label_for' => self::PREFIX . 'new-window' ) );
+			add_settings_field( self::PREFIX . 'bottom-for-mobile', 'Move to Bottom on Small Screens', array( $this, 'markupSettingFields' ), self::SETTINGS_PAGE, self::SETTINGS_PAGE, array( 'label_for' => self::PREFIX . 'bottom-for-mobile' ) );
 
 			register_setting( self::SETTINGS_PAGE, self::PREFIX . 'ribbon-position' );
 			register_setting( self::SETTINGS_PAGE, self::PREFIX . 'new-window' );
@@ -110,53 +111,8 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		 *
 		 * @author Ian Dunn <ian@iandunn.name>
 		 */
-		public function ribbonPositionCallback() {
-			?>
-
-			<input id="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position-top-right" name="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position" type="radio" value="top-right" <?php checked( $this->ribbonPosition, 'top-right' ); ?> />
-			<label for="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position-top-right"><span class="description">Top Right Corner.</span></label>
-			<br />
-
-			<input id="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position-top-left" name="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position" type="radio" value="top-left" <?php checked( $this->ribbonPosition, 'top-left' ); ?> />
-			<label for="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position-top-left"><span class="description">Top Left Corner.</span></label>
-
-			<?php
-		}
-
-		/**
-		 * Adds the new-window field to the Settings page
-		 *
-		 * @author Ian Dunn <ian@iandunn.name>
-		 */
-		public function newWindowCallback() {
-			?>
-
-			<input id="<?php echo esc_attr( self::PREFIX ); ?>new-window" name="<?php echo esc_attr( self::PREFIX ); ?>new-window" type="checkbox" <?php checked( $this->newWindow, 'on' ); ?> />
-			<label for="<?php echo esc_attr( self::PREFIX ); ?>new-window">
-				<span class="description">
-					If checked, the link to the NFS website open in a new window.<br />
-					<strong>Note:</strong> Forcing links to open in a new window is <a href="http://uxdesign.smashingmagazine.com/2008/07/01/should-links-open-in-new-windows/">considered a bad practice</a>. Please consider leaving this off.
-				</span>
-			</label>
-
-			<?php
-		}
-
-		/**
-		 * Adds the bottom-for-mobile field to the Settings page
-		 *
-		 * @author Ian Dunn <ian@iandunn.name>
-		 */
-		public function bottomForMobileCallback() {
-			?>
-
-			<input id="<?php echo esc_attr( self::PREFIX ); ?>bottom-for-mobile" name="<?php echo esc_attr( self::PREFIX ); ?>bottom-for-mobile" type="checkbox" <?php checked( $this->bottomForMobile, 'on' ); ?> />
-			<label for="<?php echo esc_attr( self::PREFIX ); ?>bottom-for-mobile">
-				<span class="description">If checked, the ribbon will appear at the bottom of the page when viewed on a smartphone so that it doesn't overlap the header. Note that this won't work in Internet Explorer versions 8 and below, because they don't support modern web standards.
-				</span>
-			</label>
-
-			<?php
+		public function markupSettingFields( $field ) {
+			require( dirname( __FILE__ ) . '/views/setting-fields.php' );
 		}
 
 		/**
@@ -192,8 +148,9 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		 * @author Ian Dunn <ian@iandunn.name>
 		 */
 		public function setDisplayRibbon() {
-			if ( isset( $this->displayRibbon ) )
+			if ( isset( $this->displayRibbon ) ) {
 				return;
+			}
 
 			if ( ! is_admin() && ! in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ) ) )
 				$this->displayRibbon = true;
@@ -208,8 +165,9 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		 * @author Ian Dunn <ian@iandunn.name>
 		 */
 		public function printRibbon() {
-			if ( $this->displayRibbon )
+			if ( $this->displayRibbon ) {
 				require_once( dirname( __FILE__ ) . '/views/ribbon-markup.php' );
+			}
 		}
 	} // end ReAbolishSlaveryRibbon
 }

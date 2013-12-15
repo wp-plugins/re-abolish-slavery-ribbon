@@ -104,6 +104,8 @@ Add that code to a [functionality plugin](http://www.doitwithwp.com/create-funct
 
 = 1.0.4 (2013-12-14) =
 * [UPDATE] Remove unnecessary activation logic
+* [UPDATE] Moved multiple inline HTML callbacks to single external controller/view
+* [UPDATE] Minor code cleanup
 
 = 1.0.3 =
 * Added output sanitization for security
@@ -129,7 +131,7 @@ Add that code to a [functionality plugin](http://www.doitwithwp.com/create-funct
 == Upgrade Notice ==
 
 = 1.0.4 =
-
+Version 1.0.4 has some minor code cleanup and has been tested with WordPress 3.8
 
 = 1.0.3 =
 Version 1.0.3 adds a few filters for customization and output sanitization for security.
