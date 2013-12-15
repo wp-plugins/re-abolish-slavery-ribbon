@@ -21,6 +21,7 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 
 		/**
 		 * Constructor
+		 *
 		 * @author Ian Dunn <ian@iandunn.name>
 		 */
 		public function __construct() {
@@ -45,12 +46,13 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 			$this->newWindow       = get_option( self::PREFIX . 'new-window', '' );
 			$this->ribbonPosition  = get_option( self::PREFIX . 'ribbon-position', 'top-right' );
 			$this->bottomForMobile = get_option( self::PREFIX . 'bottom-for-mobile', 'on' );
-			$this->imageLocation   = apply_filters( 'rasr_image_location', plugins_url( 're-abolish-slavery-ribbon/images/ribbon-'. $this->ribbonPosition .'.png' ) );
+			$this->imageLocation   = apply_filters( 'rasr_image_location', plugins_url( 're-abolish-slavery-ribbon/images/ribbon-' . $this->ribbonPosition . '.png' ) );
 			$this->imageLinkURL    = apply_filters( 'rasr_image_link_url', 'http://www.notforsalecampaign.org/about/slavery/' );
 		}
 
 		/**
 		 * Adds a page to Settings menu
+		 *
 		 * @author Ian Dunn <ian@iandunn.name>
 		 */
 		public function addSettingsPage() {
@@ -59,6 +61,7 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 
 		/**
 		 * Creates the markup for the settings page
+		 *
 		 * @author Ian Dunn <ian@iandunn.name>
 		 */
 		public function markupSettingsPage() {
@@ -70,6 +73,7 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 
 		/**
 		 * Adds a 'Settings' link to the Plugins page
+		 *
 		 * @author Ian Dunn <ian@iandunn.name>
 		 *
 		 * @param array $links The links currently mapped to the plugin
@@ -86,10 +90,11 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		/**
 		 * Adds our custom settings to the admin Settings pages
 		 * We intentionally don't register the map-latitude and map-longitude settings because they're set by updateMapCoordinates()
+		 *
 		 * @author Ian Dunn <ian@iandunn.name>
 		 */
 		public function addSettings() {
-			add_settings_section( self::SETTINGS_PAGE, '', array( $this, 'settingsSectionCallback' ), self::SETTINGS_PAGE );
+			add_settings_section( self::SETTINGS_PAGE, '', '__return_empty_string', self::SETTINGS_PAGE );
 
 			add_settings_field( self::PREFIX . 'ribbon-position', 'Ribbon Position', array( $this, 'ribbonPositionCallback' ), self::SETTINGS_PAGE, self::SETTINGS_PAGE, array( 'label_for' => self::PREFIX . 'ribbon-position' ) );
 			add_settings_field( self::PREFIX . 'new-window', 'Open Link in New Window', array( $this, 'newWindowCallback' ), self::SETTINGS_PAGE, self::SETTINGS_PAGE, array( 'label_for' => self::PREFIX . 'new-window' ) );
@@ -101,15 +106,8 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		}
 
 		/**
-		 * Adds the section introduction text to the Settings page
-		 * @author Ian Dunn <ian@iandunn.name>
-		 */
-		public function settingsSectionCallback() {
-			// intentionally blank
-		}
-
-		/**
 		 * Adds the bottom-for-mobile field to the Settings page
+		 *
 		 * @author Ian Dunn <ian@iandunn.name>
 		 */
 		public function ribbonPositionCallback() {
@@ -122,11 +120,12 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 			<input id="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position-top-left" name="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position" type="radio" value="top-left" <?php checked( $this->ribbonPosition, 'top-left' ); ?> />
 			<label for="<?php echo esc_attr( self::PREFIX ); ?>ribbon-position-top-left"><span class="description">Top Left Corner.</span></label>
 
-		<?php
+			<?php
 		}
 
 		/**
 		 * Adds the new-window field to the Settings page
+		 *
 		 * @author Ian Dunn <ian@iandunn.name>
 		 */
 		public function newWindowCallback() {
@@ -145,6 +144,7 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 
 		/**
 		 * Adds the bottom-for-mobile field to the Settings page
+		 *
 		 * @author Ian Dunn <ian@iandunn.name>
 		 */
 		public function bottomForMobileCallback() {
@@ -161,6 +161,7 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 
 		/**
 		 * Load CSS file
+		 *
 		 * @author Ian Dunn <ian@iandunn.name>
 		 */
 		public function loadResources() {
@@ -187,6 +188,7 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 
 		/**
 		 * Determines if the ribbon should be displayed on the current page
+		 *
 		 * @author Ian Dunn <ian@iandunn.name>
 		 */
 		public function setDisplayRibbon() {
@@ -212,4 +214,3 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 	} // end ReAbolishSlaveryRibbon
 }
 
-?>

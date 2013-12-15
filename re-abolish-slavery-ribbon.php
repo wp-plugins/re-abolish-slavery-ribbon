@@ -32,11 +32,12 @@ if ( $_SERVER['SCRIPT_FILENAME'] == __FILE__ )
 	die( 'Access denied.' );
 
 define( 'RASR_NAME', 'Re-Abolish Slavery Ribbon' );
-define( 'RASR_REQUIRED_PHP_VERSON', '5' );     // Because of various OOP features, pass by reference, etc
-define( 'RASR_REQUIRED_WP_VERSION', '2.8' );   // Because of esc_url(), esc_attr(), etc
+define( 'RASR_REQUIRED_PHP_VERSON', '5' );   // Because of various OOP features, pass by reference, etc
+define( 'RASR_REQUIRED_WP_VERSION', '2.8' ); // Because of esc_url(), esc_attr(), etc
 
 /**
  * Checks if the system requirements are met
+ *
  * @author Ian Dunn <ian@iandunn.name>
  * @return bool True if system requirements are met, false if not
  */
@@ -54,6 +55,7 @@ function RASR_requirementsMet() {
 
 /**
  * Prints an error that the system requirements weren't met.
+ *
  * @author Ian Dunn <ian@iandunn.name>
  */
 function RASR_requirementsNotMet() {
