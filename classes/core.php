@@ -32,7 +32,6 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 			add_action( 'admin_menu',    array( $this, 'addSettingsPage' ) );
 			add_action( 'admin_init',    array( $this, 'addSettings' ) );
 			add_action( 'wp_footer',     array( $this, 'printRibbon' ) );
-			add_action( 'wpmu_new_blog', array( $this, 'activateNewSite' ) );
 
 			// Filters
 			add_filter( 'plugin_action_links_re-abolish-slavery-ribbon/re-abolish-slavery-ribbon.php', array( $this, 'addSettingsLink' ) );
@@ -171,4 +170,3 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		}
 	} // end ReAbolishSlaveryRibbon
 }
-

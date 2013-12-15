@@ -3,8 +3,8 @@ Contributors: iandunn
 Donate link: http://www.notforsalecampaign.org
 Tags: Not For Sale, slavery, human trafficking, abolition, social justice, ribbon, badge, banner
 Requires at least: 2.8
-Tested up to: 3.6
-Stable tag: 1.0.3
+Tested up to: 3.8
+Stable tag: 1.0.4
 License: GPLv2 or Later
 
 Adds a "re-abolish slavery" ribbon to the top left or top right corner of your site, which links to the Not For Sale campaign.
