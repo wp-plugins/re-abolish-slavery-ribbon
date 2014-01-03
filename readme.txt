@@ -22,22 +22,9 @@ You can help raise awareness by installing this plugin, which will add a ribbon 
 
 == Installation ==
 
-**Automatic**
+For help installing this (or any other) WordPress plugin, please read the [Managing Plugins](http://codex.wordpress.org/Managing_Plugins) article on the Codex.
 
-1. Login to your blog and go to the Plugins page.
-2. Click on the 'Add New' button.
-3. Search for 're-abolish slavery ribbon'.
-4. Click 'Install now'.
-5. Enter your FTP or FTPS username and password. If you don't know it, you can ask your web host for it.
-6. Click 'Activate plugin'.
-7. You're done. The ribbon should automatically show up in the upper-right hand corner of your site.
-
-**Manual**
-
-1. Download the plugin and un-zip it.
-2. Upload the *re-abolish-slavery-ribbon* folder to your *wp-content/plugins/* directory.
-3. Activate the plugin through the 'Plugins' menu in WordPress.
-4. You're done. The ribbon should automatically show up in the upper-right hand corner of your site.
+Once the plugin is installed and activated, the ribbon should automatically show up in the upper-right hand corner of your site. You can visit the Settings page to change where it's positioned and other settings.
 
 
 == Frequently Asked Questions ==
@@ -51,7 +38,7 @@ There is an option to control whether it does or not, but be aware that forcing 
 = How do I prevent the ribbon from overlapping my header on smartphones or other small screens? =
 You can go to the General Settings page and check the 'Move to Bottom on Small Screens' box. That will move the ribbon to the bottom of the page for smartphones and other devices with small screens.
 
-Note that this won't work in Internet Expolorer 8 or below, because they don't support modern web standards.
+Note that this won't work in Internet Explorer 8 or below, because they don't support modern web standards.
 
 = Can I make a donation to support the plugin? =
 I don't want to take any donations for myself, but if you'd like to give something please consider making a donation to [the Not For Sale campaign](http://www.notforsalecampaign.org) directly, or [buying something from their store](http://www.notforsalestore.com).
