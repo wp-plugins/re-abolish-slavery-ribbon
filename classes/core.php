@@ -15,7 +15,7 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 		// Declare variables and constants
 		protected $displayRibbon, $newWindow, $ribbonPosition, $bottomForMobile, $imageLocation, $imageLinkURL;
 
-		const VERSION       = '1.0.4';
+		const VERSION       = '1.0.5';
 		const PREFIX        = 'rasr_';
 		const SETTINGS_PAGE = 'rasr_settings';
 
@@ -46,7 +46,7 @@ if ( ! class_exists( 'ReAbolishSlaveryRibbon' ) ) {
 			$this->ribbonPosition  = get_option( self::PREFIX . 'ribbon-position', 'top-right' );
 			$this->bottomForMobile = get_option( self::PREFIX . 'bottom-for-mobile', 'on' );
 			$this->imageLocation   = apply_filters( 'rasr_image_location', plugins_url( 're-abolish-slavery-ribbon/images/ribbon-' . $this->ribbonPosition . '.png' ) );
-			$this->imageLinkURL    = apply_filters( 'rasr_image_link_url', 'http://www.notforsalecampaign.org/about/slavery/' );
+			$this->imageLinkURL    = apply_filters( 'rasr_image_link_url', 'http://notforsalecampaign.org/human-trafficking/' );
 		}
 
 		/**
