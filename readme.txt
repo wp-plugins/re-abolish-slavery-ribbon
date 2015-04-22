@@ -3,7 +3,7 @@ Contributors: iandunn
 Donate link: http://www.notforsalecampaign.org
 Tags: Not For Sale, slavery, human trafficking, abolition, social justice, ribbon, badge, banner
 Requires at least: 2.8
-Tested up to: 4.0
+Tested up to: 4.2
 Stable tag: 1.0.5
 License: GPLv2 or Later
 
